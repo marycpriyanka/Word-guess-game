@@ -1,0 +1,35 @@
+:root{
+    --border-radius: 10px;
+}
+
+header{
+    background-color: orange;
+    padding: 5%;
+    text-align: center;
+}
+
+button{
+    padding: 1% 2%;
+    border-radius: var(--border-radius);
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container{
+    background-color: yellow;
+    border: 1px solid;
+    margin: 2%;
+    padding: 2%;
+    border-radius: var(--border-radius);
+    width: 40%;
+}
+
+#score{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
