@@ -2,16 +2,22 @@
 const words = ["string", "javascript", "function", "object", "method", "iteration", "array"];
 // Current word 
 let currentWord = "";
-let wordBlanks = "";
+// Blanks for a word
+let wordBlanks = [];
 // Game timer
 let gameTimer;
 // Time left for game
 let secLeft = 0;
+// Score
+let noOfWins = 0;
+let noOfLosses = 0;
 
 // Gets the DOM elements
 let startButton = document.getElementById("start");
 let gameArea = document.getElementById("game");
 let timerDisplay = document.getElementById("timerDisplay");
+let wins = document.getElementById("wins");
+let losses = document.getElementById("losses");
 
 // Event handler for Start game button
 startButton.addEventListener("click", startGame);
@@ -19,9 +25,9 @@ document.addEventListener("keydown", checkKeyPress);
 
 // Starts the game
 function startGame() {
-    wordBlanks = "";
+    wordBlanks = [];
     wordBlanks = getWordAndInitialBlanks();
-    gameArea.textContent = wordBlanks;
+    gameArea.textContent = wordBlanks.join(" ");
 
     secLeft = 10;
     startTimer();
@@ -35,7 +41,7 @@ function getWordAndInitialBlanks() {
 
     for (let i = 0; i < currentWord.length; i++)
     {
-        wordBlanks += "_";
+        wordBlanks.push("_");
     }
 
     return wordBlanks;
@@ -51,8 +57,11 @@ function startTimer()
         }
         else {
             clearInterval(gameTimer);
-            // Stop game and display the word and results
-            
+            // Stop game and display the  results
+            secLeft = 0;
+            gameArea.textContent = "GAME OVER";
+            noOfLosses++;
+            losses.textContent = noOfLosses;
         }
     }, 1000); 
 }
@@ -73,10 +82,19 @@ function checkKeyPress(event) {
         // Replaces the blank with the letter for each occurance of the key in the chosen word
         for (let i = 0; i < currentWord.length; i++) {
             if (currentWord[i] === key) {
-                wordBlanks = wordBlanks.slice(0, i) + key + wordBlanks.slice(i + 1);
+                wordBlanks[i] = key;
             }
         }
 
-        gameArea.textContent = wordBlanks;
+        gameArea.textContent = wordBlanks.join(" ");
+    }
+
+    if(wordBlanks.indexOf("_") === -1) {
+        // Stop timer and display success message
+        clearInterval(gameTimer);
+        secLeft = 0;
+        gameArea.textContent = "YOU WON!!!";
+        noOfWins++;
+        wins.textContent = noOfWins;
     }
 }

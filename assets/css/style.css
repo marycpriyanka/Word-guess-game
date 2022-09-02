@@ -25,6 +25,11 @@ main{
     padding: 2%;
     border-radius: var(--border-radius);
     width: 40%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #score{
