@@ -31,10 +31,3 @@ main{
     align-items: center;
     justify-content: space-around;
 }
-
-#score{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-}

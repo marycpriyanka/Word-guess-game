@@ -8,9 +8,11 @@ let wordBlanks = [];
 let gameTimer;
 // Time left for game
 let secLeft = 0;
-// Score
-let noOfWins = 0;
-let noOfLosses = 0;
+// Gets score from local storage or defaults to 0
+let noOfWins = localStorage.getItem("noOfWins") || 0;
+let noOfLosses = localStorage.getItem("noOfLosses") || 0;
+
+
 
 // Gets the DOM elements
 let startButton = document.getElementById("start");
@@ -22,6 +24,14 @@ let losses = document.getElementById("losses");
 // Event handler for Start game button
 startButton.addEventListener("click", startGame);
 document.addEventListener("keydown", checkKeyPress);
+
+init();
+
+// Displays the score when page is loaded
+function init() {
+    wins.textContent = noOfWins;
+    losses.textContent = noOfLosses;
+}
 
 // Starts the game
 function startGame() {
@@ -61,6 +71,8 @@ function startTimer()
             secLeft = 0;
             gameArea.textContent = "GAME OVER";
             noOfLosses++;
+            // Sets the losses in local storage
+            localStorage.setItem("noOfLosses", noOfLosses);
             losses.textContent = noOfLosses;
         }
     }, 1000); 
@@ -89,12 +101,15 @@ function checkKeyPress(event) {
         gameArea.textContent = wordBlanks.join(" ");
     }
 
+    // If user guessed all letters correctly
     if(wordBlanks.indexOf("_") === -1) {
         // Stop timer and display success message
         clearInterval(gameTimer);
         secLeft = 0;
         gameArea.textContent = "YOU WON!!!";
         noOfWins++;
+        // Sets the wins in local storage
+        localStorage.setItem("noOfWins", noOfWins);
         wins.textContent = noOfWins;
     }
 }
