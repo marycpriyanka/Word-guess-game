@@ -20,10 +20,12 @@ let gameArea = document.getElementById("game");
 let timerDisplay = document.getElementById("timerDisplay");
 let wins = document.getElementById("wins");
 let losses = document.getElementById("losses");
+let resetButton = document.getElementById("reset");
 
 // Event handler for Start game button
 startButton.addEventListener("click", startGame);
 document.addEventListener("keydown", checkKeyPress);
+resetButton.addEventListener("click", resetScore);
 
 init();
 
@@ -112,4 +114,15 @@ function checkKeyPress(event) {
         localStorage.setItem("noOfWins", noOfWins);
         wins.textContent = noOfWins;
     }
+}
+
+// Sets the win and loss count to zero
+function resetScore() {
+    noOfWins = 0;
+    noOfLosses = 0;
+
+    localStorage.setItem("noOfWins", noOfWins);
+    localStorage.setItem("noOfLosses", noOfLosses);
+
+    init();
 }
