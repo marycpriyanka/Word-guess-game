@@ -1,11 +1,21 @@
 :root{
     --border-radius: 10px;
+    --background-color: black;
+}
+
+body{
+    background-color: var(--background-color);
 }
 
 header{
     background-color: orange;
     padding: 5%;
     text-align: center;
+    margin-bottom: 5%;
+}
+
+h1{
+    margin: 2%;
 }
 
 button{
@@ -16,6 +26,7 @@ button{
 main{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .container{
@@ -30,4 +41,9 @@ main{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+}
+
+button{
+    background-color: var(--background-color);
+    color: white;
 }
