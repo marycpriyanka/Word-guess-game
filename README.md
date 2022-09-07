@@ -26,15 +26,23 @@ This program can be run through a browser using the link to the deployed applica
 
 Use the deployed link to open the application. 
 
+![StartingPage](https://github.com/marycpriyanka/Word-guess-game/blob/main/assets/images/screenshots/StartingPage.png)
+
 Click on the Start button to start the game. The game is timed. User can try and guess a word by filling in a number of blanks that match the number of letters in that word. When a user correctly guesses a letter, the corresponding blank "_" will be replaced by the letter.
+
+![StartGame](https://github.com/marycpriyanka/Word-guess-game/blob/main/assets/images/screenshots/startGame.png)
 
 User will win the game when they have guessed all the letters in the word. The message "YOU WON!!!" will appear and timer will stop.
 
+![WinGame](https://github.com/marycpriyanka/Word-guess-game/blob/main/assets/images/screenshots/Win.png)
+
 User will lose the game when the timer runs out before they have guessed all the letters. The message "GAME OVER" will appear and timer will stop.
 
-The total wins and losses will be shown on screen. When use refreshes or returns to the browser page, the win and loss counts persist.
+![LossGame](https://github.com/marycpriyanka/Word-guess-game/blob/main/assets/images/screenshots/Loss.png)
 
 When the user clicks on the Start button, the timer will reset.
+
+The total wins and losses will be shown on screen. When use refreshes or returns to the browser page, the win and loss counts persist.
 
 Clicking on the reset button will set the win and loss counts to zero.
 
